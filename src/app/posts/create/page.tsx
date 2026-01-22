@@ -14,9 +14,13 @@ export default async function CreatePostPage() {
   if (!user) redirect("/auth/login");
   return (
     <div className="content flex flex-col justify-center items-center gap-10">
-      <h1 className={`${font_accent.className} text-center text-light text-2xl`}>Новая статья</h1>
+      <h1
+        className={`${font_accent.className} text-center text-light text-2xl`}
+      >
+        Новая статья
+      </h1>
       <Suspense>
-        <CreatePostForm userId={user.id}/>
+        <CreatePostForm userId={user.id} />
       </Suspense>
     </div>
   );

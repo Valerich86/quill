@@ -2,7 +2,6 @@
 
 import pool from "@/lib/db";
 import { NextRequest, NextResponse } from "next/server";
-import z from "zod";
 import bcrypt from "bcrypt";
 import { User } from "@/lib/types";
 import { createSessionToken } from "@/lib/auth";
@@ -38,7 +37,7 @@ export async function POST(request: NextRequest) {
   }
   const token = await createSessionToken(user.id, user.name, user.avatar);
 
-  return new Response(JSON.stringify({ success: true }), {
+  return NextResponse.json({ success: true }, {
     status: 200,
     headers: {
       "Set-Cookie": `session=${token}; Path=/; HttpOnly; Secure; SameSite=Strict; Max-Age=604800`,

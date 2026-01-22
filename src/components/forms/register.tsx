@@ -22,8 +22,8 @@ export default function RegisterForm() {
 
     try {
       const formData = new FormData(event.currentTarget);
-      const response = await fetch('/api/auth/register', {
-        method: 'POST',
+      const response = await fetch("/api/auth/register", {
+        method: "POST",
         body: formData,
       });
       if (!response.ok) {
@@ -45,35 +45,27 @@ export default function RegisterForm() {
     <form className="form" onSubmit={handleSubmit}>
       {/* name */}
       <fieldset className="fieldset">
-        <legend className="legend">Ваше имя (для всех пользователей) <span className="text-red-500 ml-1">*</span></legend>
-        <input
-          className="input"
-          type="text"
-          name="name"
-          autoFocus
-        />
+        <legend className="legend">
+          Ваше имя (для всех пользователей){" "}
+          <span className="text-red-500 ml-1">*</span>
+        </legend>
+        <input className="input" type="text" name="name" autoFocus />
         {errors.name && <p className="error">{errors.name}</p>}
       </fieldset>
 
       {/* email */}
       <fieldset className="fieldset">
-        <legend className="legend">Email <span className="text-red-500 ml-1">*</span></legend>
-        <input
-          className="input"
-          type="email"
-          name="email"
-        />
+        <legend className="legend">
+          Email <span className="text-red-500 ml-1">*</span>
+        </legend>
+        <input className="input" type="email" name="email" />
         {errors.email && <p className="error">{errors.email}</p>}
       </fieldset>
 
       {/* bio */}
       <fieldset className="fieldset">
         <legend className="legend">Пару слов о себе</legend>
-        <textarea
-          className="input"
-          name="bio"
-          rows={5}
-        />
+        <textarea className="input" name="bio" rows={5} />
         {errors.bio && <p className="error">{errors.bio}</p>}
       </fieldset>
 
@@ -91,7 +83,9 @@ export default function RegisterForm() {
 
       {/* password */}
       <fieldset className="fieldset">
-        <legend className="legend">Придумайте пароль <span className="text-red-500 ml-1">*</span></legend>
+        <legend className="legend">
+          Придумайте пароль <span className="text-red-500 ml-1">*</span>
+        </legend>
         <input
           className="input"
           type="password"
@@ -103,19 +97,18 @@ export default function RegisterForm() {
 
       {/* confirm */}
       <fieldset className="fieldset">
-        <legend className="legend">Повторите пароль <span className="text-red-500 ml-1">*</span></legend>
-        <input
-          className="input"
-          type="password"
-          name="confirm"
-        />
+        <legend className="legend">
+          Повторите пароль <span className="text-red-500 ml-1">*</span>
+        </legend>
+        <input className="input" type="password" name="confirm" />
         {errors.confirm && <p className="error">{errors.confirm}</p>}
       </fieldset>
 
       <button
         type="submit"
         disabled={isLoading}
-        className="bg-accent_1 mt-5 text-white p-2 rounded-full disabled:bg-zinc-400 disabled:cursor-not-allowed hover:opacity-90 active:scale-99 cursor-pointer"
+        className={`bg-accent_1 mt-5 text-white p-2 rounded-full disabled:bg-zinc-400 
+          disabled:cursor-not-allowed hover:opacity-90 active:scale-99 cursor-pointer`}
       >
         {isLoading ? "Регистрация..." : "Зарегистрироваться"}
       </button>

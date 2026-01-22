@@ -75,7 +75,6 @@ export function parseJSXToText(parsedLines: ParsedLine[]): string {
         case "paragraph":
           return line.content;
         default:
-          // На случай, если появятся другие типы — возвращаем контент как есть
           return line.content;
       }
     })

@@ -28,7 +28,10 @@ export default function Pagination({
       <button
         onClick={() => handlePageChange(pagination.page - 1)}
         disabled={!pagination.hasPrev || isLoading}
-        className="disabled:opacity-0 px-1 bg-dark border border-light rounded-l-full text-light disabled:cursor-not-allowed"
+        className={
+          `disabled:opacity-0 px-1 bg-dark border border-light 
+          rounded-l-full text-light disabled:cursor-not-allowed`
+        }
       >
         <AiFillCaretLeft size={30}/>
       </button>
@@ -48,11 +51,14 @@ export default function Pagination({
           </button>
         )
       )}
-
+      
       <button
         onClick={() => handlePageChange(pagination.page + 1)}
         disabled={!pagination.hasNext || isLoading}
-        className="disabled:opacity-0 px-1 bg-dark border border-light rounded-r-full text-light disabled:cursor-not-allowed"
+        className={
+          `disabled:opacity-0 px-1 bg-dark border border-light 
+          rounded-r-full text-light disabled:cursor-not-allowed`
+        }
       >
         <AiFillCaretRight size={30}/>
       </button>

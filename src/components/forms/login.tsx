@@ -47,7 +47,7 @@ export default function LoginForm() {
 
       {/* password */}
       <fieldset className="fieldset">
-        <legend className="legend">Придумайте пароль <span className="text-red-500 ml-1">*</span></legend>
+        <legend className="legend">Пароль <span className="text-red-500 ml-1">*</span></legend>
         <input
           className="input"
           type="password"

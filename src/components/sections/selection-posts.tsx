@@ -32,19 +32,22 @@ export default function SelectionPosts({
 
   useEffect(() => {
     fetchPosts();
+    // движение карусели каждые 5 секунд
     const interval = setInterval(() => {
       setCurrentIndex((prev) => (prev < limit - 1 ? prev + 1 : 0));
     }, 5000);
-
     return () => clearInterval(interval);
   }, []);
 
+  // движение карусели по клику
   const moveBunner = (direction: string) => {
     direction === "right"
       ? setCurrentIndex((prev) => prev + 1)
       : setCurrentIndex((prev) => prev - 1);
   };
 
+  // получение статей по критерию 
+  // (новые или популярные, зависит от criteria)
   const fetchPosts = async () => {
     setIsLoading(true);
     try {
@@ -61,10 +64,12 @@ export default function SelectionPosts({
     }
   };
 
+  // компонент загрузки
   if (!posts || isLoading) {
     return <Loading />;
   }
 
+  // одна карточка статьи в карусели
   const PostItem = ({ post }: { post: Post }) => {
     return (
       <Link
@@ -90,12 +95,16 @@ export default function SelectionPosts({
     );
   };
 
+  // разметка секции
   return (
     <section className="w-screen h-screen px-3 md:px-offsetX">
       <h1 className={`text-3xl font-extrabold text-light text-center`}>
         {headline}
       </h1>
+      {/* контейнер карусели */}
       <div className="w-full overflow-hidden rounded-xl border border-accent_1 mt-10 relative">
+        
+        {/* карусель */}
         <div
           className={`h-[70vh] flex transition duration-500 ease-in-out`}
           style={{
@@ -108,6 +117,7 @@ export default function SelectionPosts({
           ))}
         </div>
 
+        {/* кнопка "назад" */}
         <button
           className={`${
             currentIndex === 0 ? "opacity-0 pointer-events-none" : "opacity-100"
@@ -116,6 +126,8 @@ export default function SelectionPosts({
         >
           <AiFillCaretLeft size={30} />
         </button>
+
+        {/* кнопка "вперед" */}
         <button
           className={`${
             currentIndex === limit - 1
@@ -126,6 +138,7 @@ export default function SelectionPosts({
         >
           <AiFillCaretRight size={30} />
         </button>
+
       </div>
     </section>
   );

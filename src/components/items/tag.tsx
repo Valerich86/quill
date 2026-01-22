@@ -1,16 +1,12 @@
 'use client';
-
 import { useState } from "react";
 import { Tag } from "@/lib/types";
-
 export const TagItem = ({ item, onSelect }: { item: Tag, onSelect?: (tag: string) => void }) => {
   const [selected, setSelected] = useState(false);
-
   const toggleTag = () => {
     setSelected(prev => !prev);
     if (onSelect) onSelect(item.id);
   };
-
   return (
     <div
       onClick={toggleTag}

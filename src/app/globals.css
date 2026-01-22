@@ -1,23 +1,6 @@
 @config "../../tailwind.config.ts";
 @import "tailwindcss";
 
-/* :root {
-  --background: #1B1026;
-  --foreground: #1B1026;
-}
-
-@theme inline {
-  --color-background: var(--background);
-  --color-foreground: var(--foreground);
-}
-
-@media (prefers-color-scheme: dark) {
-  :root {
-    --background: #1B1026;
-    --foreground: #F2F2F2;
-  }
-} */
-
 p,
 span,
 pre,
@@ -36,7 +19,8 @@ html {
 }
 
 .input {
-  @apply bg-light rounded w-full p-2 outline-none focus:shadow-[0px_2px_20px_-5px_#D98C5F] placeholder:text-gray-400;
+  @apply bg-light rounded w-full p-2 outline-none
+  focus:shadow-[0px_2px_20px_-5px_#D98C5F] placeholder:text-gray-400;
 }
 
 .legend {

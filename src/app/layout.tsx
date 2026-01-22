@@ -18,15 +18,10 @@ export default async function RootLayout({
   children: React.ReactNode;
 }>) {
   const user = await verifySession();
-
   return (
     <html lang="en">
-      <body
-        className={`${font_default.className} antialiased bg-primary overflow-x-hidden`}
-      >
-        <Header user={user}/>
-        {children}
-        <CookieBanner />
+      <body className={`${font_default.className} antialiased bg-primary overflow-x-hidden`}>
+        <Header user={user}/> {children} <CookieBanner />
       </body>
     </html>
   );

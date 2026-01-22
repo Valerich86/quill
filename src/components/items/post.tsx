@@ -69,7 +69,7 @@ export default function PostItem({
       <div className="w-full bg-light rounded-2xl p-5 flex flex-col gap-10">
         <div className="w-full flex flex-col">
           <Link
-            href={`/authors/${post.user_id}`}
+            href={`/authors/${post.user_id}?current=${currentUserId}`}
             className="underline text-accent_1"
           >
             Автор: <strong className="italic text-xl">{post.author}</strong>
@@ -136,6 +136,7 @@ export default function PostItem({
           <p>Ссылка: </p>
           <Link
             href={`/posts/${post.slug}?id=${post.id}`}
+            target="blank"
             className="italic underline text-xl text-blue-700"
           >
             {post.slug}

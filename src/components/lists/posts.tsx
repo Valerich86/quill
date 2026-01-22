@@ -129,7 +129,7 @@ export default function Posts({ userId, currentUserId }: PostsProps) {
                   </Link>
                   <button
                     onClick={() => handleDelete(post.id)}
-                    className="p-3 rounded-full bg-red-500 cursor-pointer"
+                    className="p-3 rounded-full bg-red-500"
                   >
                     <MdDelete />
                   </button>
